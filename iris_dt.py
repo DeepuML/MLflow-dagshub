@@ -16,11 +16,11 @@ import seaborn as sns
 
 # DagsHub integration for MLflow tracking
 import dagshub
-Initialize DagsHub connection (links repo to MLflow tracking)
-# dagshub.init(repo_owner='campusx-official', repo_name='mlflow-dagshub-demo', mlflow=True)
+# Initialize DagsHub connection (links repo to MLflow tracking)
+dagshub.init(repo_owner='Deepu', repo_name='MLFlow-DagsHub', mlflow=True)
 
 # Set MLflow tracking URI to DagsHub server
-# mlflow.set_tracking_uri("https://dagshub.com/campusx-official/mlflow-dagshub-demo.mlflow")
+mlflow.set_tracking_uri("https://github.com/DeepuML/MLflow-dagshub.git")
 
 # Load the iris dataset
 iris = load_iris()          # Load built-in Iris dataset (features and labels)

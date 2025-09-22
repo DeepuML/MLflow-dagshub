@@ -13,14 +13,17 @@ from sklearn.metrics import accuracy_score, confusion_matrix
 # Matplotlib and Seaborn for visualization
 import matplotlib.pyplot as plt
 import seaborn as sns
+import dagshub
 
 # DagsHub integration for MLflow tracking
 import dagshub
 # Initialize DagsHub connection (links repo to MLflow tracking)
-dagshub.init(repo_owner='Deepu', repo_name='MLFlow-DagsHub', mlflow=True)
+dagshub.init(repo_owner='DeepuML', repo_name='mlflow-dagshub', mlflow=True)
+
+
 
 # Set MLflow tracking URI to DagsHub server
-mlflow.set_tracking_uri("https://github.com/DeepuML/MLflow-dagshub.git")
+mlflow.set_tracking_uri("https://dagshub.com/DeepuML/mlflow-dagshub.mlflow")
 
 # Load the iris dataset
 iris = load_iris()          # Load built-in Iris dataset (features and labels)
@@ -33,7 +36,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 )
 
 # Define the parameter for the Decision Tree model
-max_depth = 1  # Limit tree depth to avoid overfitting
+max_depth = 10  # Limit tree depth to avoid overfitting
 
 # Set the experiment name in MLflow (creates experiment if it doesn’t exist)
 mlflow.set_experiment('iris-dt')
